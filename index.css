@@ -1,0 +1,61 @@
+ion-app {
+  max-width: 80%;
+  margin: auto;
+}
+ion-header {
+  text-align: center;
+}
+ion-title {
+  font-size: 5vh;
+  color: blue;
+}
+
+.nav {
+  margin: auto;
+}
+ion-searchbar {
+  max-width: 120px;
+  padding: 1vh;
+  background-color: red;
+}
+label {
+  padding-right: 2vh;
+}
+/* virker ikke??? */
+/* .item-inners {
+  color: red;
+  border-style: none !important;
+} */
+ion-card {
+  background-color: rgba(238, 238, 238, 0.952);
+}
+ion-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+a {
+  cursor: pointer;
+  color: black;
+}
+img {
+  width: 30%;
+  display: block;
+  margin: auto;
+  padding: 3vh;
+}
+ion-button {
+  width: 30%;
+  margin: auto;
+}
+#login {
+  display: block;
+  max-width: 300px;
+  margin: auto;
+  padding: 0;
+}
+ion-card-content {
+  text-align: center;
+}
+ion-icon {
+  width: 5vw;
+}

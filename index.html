@@ -1,0 +1,111 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="favicon" href="#">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ionic Only Eksempel</title>
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <ion-app>
+        <ion-header>
+            <!-- ion title -->
+            <ion-toolbar>
+                <ion-title>Prøver ionic UI</ion-title>
+            </ion-toolbar>
+            
+            <!-- ion nav og item.-->
+            <div class="nav">
+                <ion-list>
+                    <ion-item><a>Home</a></ion-item>
+                    <ion-item><a>Hent en hund</a></ion-item>
+                    <ion-item><a>Login</a></ion-item>
+                    <ion-item><a>Contact</a></ion-item>
+                    <ion-searchbar>
+                        <label for="ion-searchbar">Søg</label>
+                    </ion-searchbar>
+                </ion-list>
+            </div>
+        </ion-header>
+
+        <!-- wrapping it in ion-content so it doesn´t go on the bottom og the page -->
+        <ion-content fullscreen>
+            <!-- first card -->
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>Hent en hund fra API</ion-card-title>
+                </ion-card-header>
+            
+                <ion-card-content>
+                    <!-- billede med fetch -->
+                    <div><img src="" id="dogImg" alt=""></div>
+                    <!-- <img src="/00100trPORTRAIT_00100_BURST20191126134713895_COVER.jpg"> -->
+                    <ion-button expand="block" onClick="window.location.reload();">Klik for at hente en ny hund</ion-button>
+                </ion-card-content>
+            </ion-card>
+
+            <!-- second card -->
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title>Login formular <ion-icon name="log-in-outline"></ion-icon></ion-card-title>
+                </ion-card-header>
+                <form>
+                    <ion-list  id="login">
+                        <ion-item>
+                            <ion-label>Name</ion-label>
+                            <ion-input></ion-input>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label>Password</ion-label>
+                            <ion-input></ion-input>
+                        </ion-item>
+                    </ion-list>
+                   <ion-button type="submit" expand="block">Login</ion-button>
+                </form>
+
+                <ion-card-content>
+                    <ion-icon name="alert-circle-outline"></ion-icon>
+                    <p>Du skal logge ind for at fortsætte.</p>
+                </ion-card-content>
+
+                <ion-card-content>
+                    <ion-toggle></ion-toggle>
+                    <p>Husk mig</p>
+                </ion-card-content>
+               
+            </ion-card>
+        </ion-content>
+
+        
+    </ion-app>
+
+
+
+    <!-- Javascript -->
+    <script>
+        const dogImg = document.getElementById('dogImg');
+
+            function getRandomDog() {
+                fetch('https://dog.ceo/api/breeds/image/random')
+                    //parse svar som json hvis fetch bliver resolved
+                    // Vent på at svar parses som json
+                    .then(response => response.json())
+                    .then(data => {
+                        //console.log(data)
+                        dogsList = data.message;
+                        dogImg.src = dogsList;
+                    })
+                    // Vis fejl hvis der er en
+                    .catch(err => console.error(err))
+            }
+            getRandomDog();
+    </script>
+</body>
+</html>
